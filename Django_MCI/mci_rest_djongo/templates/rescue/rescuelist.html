@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+
+<head>
+  <!-- <title>BootstrapTable Server Mode Test</title>
+    <head> -->
+  <html class="no-js">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>救援行動 &mdash; -大量傷病計劃</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+  <meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
+  <meta name="keywords" content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+  <meta name="author" content="FreeHTML5.co" />
+
+  <!--
+  	//////////////////////////////////////////////////////
+
+  	FREE HTML5 TEMPLATE
+  	DESIGNED & DEVELOPED by FreeHTML5.co
+
+  	Website: 		http://freehtml5.co/
+  	Email: 			info@freehtml5.co
+  	Twitter: 		http://twitter.com/fh5co
+  	Facebook: 		https://www.facebook.com/fh5co
+
+  	//////////////////////////////////////////////////////
+  	 -->
+
+  <!-- Facebook and Twitter integration -->
+  <meta property="og:title" content="" />
+  <meta property="og:image" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:site_name" content="" />
+  <meta property="og:description" content="" />
+  <meta name="twitter:title" content="" />
+  <meta name="twitter:image" content="" />
+  <meta name="twitter:url" content="" />
+  <meta name="twitter:card" content="" />
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
+
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="/static/bootstrap-table-develop/docs/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/bootstrap-table-develop/src/bootstrap-table.css">
+
+  <!-- <link rel="stylesheet" href="//rawgit.com/vitalets/x-editable/master/dist/bootstrap3-editable/css/bootstrap-editable.css">- -->
+  <script src="/static/js/jquery.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+  <script src="/static/bootstrap-table-develop/dist/bootstrap-table.js"></script>
+  <script src="/static/bootstrap-table-develop/dist/locale/bootstrap-table-zh-TW.min.js"></script>
+  <!-- <script src="/static/bootstrap-table-develop/dist/bootstrap-table.min.js"></script> -->
+
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="/static/css/animate.css">
+  <!-- Icomoon Icon Fonts-->
+  <link rel="stylesheet" href="/static/css/icomoon.css">
+  <!-- Simple Line Icons -->
+  <link rel="stylesheet" href="/static/css/simple-line-icons.css">
+  <!-- Bootstrap  -->
+  <link rel="stylesheet" href="/static/css/bootstrap.css">
+  <!-- Theme style  -->
+  <link rel="stylesheet" href="/static/css/style.css">
+  <style>
+  /*.container {
+    margin:auto;
+    }*/
+  </style>
+  <!-- Modernizr JS -->
+  <script src="/static/js/modernizr-2.6.2.min.js"></script>
+  <!-- FOR IE9 below -->
+  <!--[if lt IE 9]>
+    	<script src="js/respond.min.js"></script>
+    	<![endif]-->
+
+</head>
+<div id="fh5co-page">
+  <header id="fh5co-header" role="banner">
+    <div class="container">
+      <div class="header-inner">
+        <h1><i class="icon-ambulance"></i><a href="about.html">大量傷病計劃</a></h1>
+        <nav role="navigation">
+          <ul>
+            <!-- <li><a href="/index">首頁</a></li> -->
+            <li><a class="active" href="/rescuelist">救援列表</a></li>
+            <!-- <li><a href="portfolio.html">Portfolio</a></li>
+						<li><a href="services.html">Services</a></li> -->
+            <!-- <li><a href="/about">查詢</a></li> -->
+            <li><a href="/admin">後端</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <body>
+
+    <div class="container custom-container-width">
+      <!-- <h1><font face="fantasy">KDD Rescue</font></h1> -->
+    </div>
+    <div>
+      <div id="toolbar" class="btn-group">
+        <button id="btn_add" type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
+            </button>
+        <button id="btn_edit" type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>編輯
+            </button>
+        <button id="btn_delete" type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>刪除
+            </button>
+      </div>
+      <table  id="table">
+      </table>
+    </div>
+
+    <footer id="fh5co-footer" role="contentinfo">
+
+      <div class="container">
+        <div class="col-md-3 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
+          <h3>關於我們</h3>
+          <p>科技部大量傷病計劃</p>
+        </div>
+        <div class="col-md-6 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
+          <h3>提供服務</h3>
+          <ul class="float">
+            <li><a href="#">智慧手環</a></li>
+            <li><a href="#">雲端平台</a></li>
+            <li><a href="#">救難APP開發</a></li>
+
+          </ul>
+          <!-- <ul class="float">
+            <li><a href="#">Free Bootstrap Template</a></li>
+            <li><a href="#">Free HTML5 Template</a></li>
+            <li><a href="#">Free HTML5 &amp; CSS3 Template</a></li>
+          </ul> -->
+
+        </div>
+
+        <div class="col-md-2 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
+          <h3>Follow Us</h3>
+          <ul class="fh5co-social">
+            <li><a href="#"><i class="icon-twitter"></i> 中興大學</a></li>
+            <li><a href="#"><i class="icon-facebook"></i>彰化師範大學</a></li>
+            <!-- <li><a href="#"><i class="icon-google-plus"></i> Google Plus</a></li>
+            <li><a href="#"><i class="icon-instagram"></i> Instagram</a></li> -->
+          </ul>
+        </div>
+
+
+        <div class="col-md-12 fh5co-copyright text-center">
+          <p>&copy; 2017 科技部大量傷病計劃 <span>Designed with KDD <i class="icon-heart"></i> by <a href="http://freehtml5.co/" target="_blank">Sponsor FreeHTML5.co</a> Demo Images by <a href="http://unsplash.com/" target="_blank">Unsplash</a></span></p>
+        </div>
+
+      </div>
+    </footer>
+</div>
+
+
+
+<script type="text/javascript">
+  var $bt_add = $('#btn_add'),
+    $bt_delete = $('#btn_delete'),
+    $bt_edit = $('#btn_edit'),
+    $mytable = $('#table');
+  // $window = $(window);
+
+  $(function() {
+    initTable();
+    var oButtonInit = new ButtonInit();
+    oButtonInit.Init();
+    $bt_add.click(function() {
+
+      window.open('/easyRescue', 'Add', config = 'height=500,width=600');
+    });
+    $bt_delete.click(function() {
+      var mydata = JSON.stringify($mytable.bootstrapTable('getSelections'));
+      $.post("/deleteRescue/", {
+        'mydata': mydata
+      }, function(data, status) {
+        alert("Data: " + data.statue);
+      });
+
+      $("#table").bootstrapTable('refresh');
+      // alert('getSelections: ' + JSON.stringify($mytable.bootstrapTable('getSelections')));
+    });
+    $bt_edit.click(function() {
+      if ($mytable.bootstrapTable('getSelections').length == 1) {
+
+        var name = $mytable.bootstrapTable('getSelections')[0]['name']
+        var url = '/easyEditRescue/' + name + '/'
+        console.log(url);
+        window.open(url, 'Edit', config = 'height=500,width=600');
+
+      } else {
+        alert('Please Just one');
+      }
+      // alert($mytable.bootstrapTable('getSelections').length)
+      // window.open('http://127.0.0.1:8000/easyRescue', 'Add', config='height=500,width=600');
+    });
+
+
+  });
+
+  function initTable() {
+    $("#table").bootstrapTable({
+      method: 'post',
+      striped: true,
+      toolbar: "#toolbar",
+      search: true,
+      showRefresh: true,
+      showToggle: true,
+      showColumns: true,
+      detailview: true,
+      cardView: false,
+      detailView: false,
+      // clickToSelect: true,
+      height: $(window).height() - 110,
+      width: $(window).width(),
+      minimumCountColumns: 2,
+      showPaginationSwitch: true,
+      queryParams: queryParams,
+      pagination: true,
+      pagelist: [10, 25, 50],
+      sidePagination: "server",
+      url: '/queryRescue/',
+      responsehandler: responseHandler,
+      rowStyle:rowStyle,
+      showExport: true,
+      exportDataType: 'all',
+      columns: [{
+          checkbox: true
+        },
+
+        {
+          field: 'timestart',
+          title: '開始時間',
+          align: 'center',
+          valign: 'middle',
+          visible:false,
+          sortable: true,
+        },
+        {
+          field: 'name',
+          title: '事件',
+          align: 'center',
+          valign: 'middle',
+          sortable: true
+        },
+        {
+          field: 'address',
+          title: '地址',
+          align: 'center',
+          valign: 'middle',
+          sortable: true,
+        },
+
+        {
+          field: 'patients',
+          title: '傷亡人數',
+          align: 'center',
+          valign: 'middle',
+          sortable: true
+        },
+        {
+          field: 'black',
+          title: '死亡人數',
+          align: 'center',
+          valign: 'middle',
+          cellStyle: function(value){
+              return { css: {"background-color":"black","font-size": "28px","color": "white"} };
+
+          },
+          sortable: true
+        },
+        {
+          field: 'red',
+          title: '極危險人數',
+          align: 'center',
+          valign: 'middle',
+          cellStyle: function(value){
+              return { classes: 'danger',css: {"color": "#000000","font-size": "28px"} };
+
+          },
+          sortable: true
+        },
+        {
+          field: 'yellow',
+          title: '危險人數',
+          align: 'center',
+          valign: 'middle',
+          cellStyle: function(value){
+              return { classes: 'warning',css: {"color": "#000000","font-size": "28px"} };
+
+          },
+          sortable: true
+        },
+        {
+          field: 'green',
+          title: '輕傷人數',
+          align: 'center',
+          valign: 'middle',
+          cellStyle: function(value){
+              return { classes: 'success',css: {"color": "#000000","font-size": "28px"} };
+
+          },
+          sortable: true
+        },
+        {
+          field: 'inhospital',
+          title: '送診人數',
+          align: 'center',
+          valign: 'middle',
+          cellStyle: function(value){
+              return { classes: 'info',css: {"color": "#000000","font-size": "28px"} };
+
+          },
+          sortable: true
+        },
+        {
+          field: 'notinhospital',
+          title: '未送診人數',
+          align: 'center',
+          valign: 'middle',
+          cellStyle: function(value){
+              return { classes: 'primary',css: {"color": "#000000","font-size": "28px"} };
+
+          },
+          sortable: true
+        },
+
+        {
+          field: 'commander',
+          title: '指揮官',
+          align: 'center',
+          valign: 'middle',
+          visible:false,
+          sortable: true,
+          cellStyle: function(value){
+              return { css: {"color": "#000000","font-size": "28px"} };
+          }
+        },
+        {
+          field: 'operate',
+          title: '細節',
+          align: 'center',
+          valign: 'middle',
+          events: act,
+          formatter: nameFormatter,
+
+
+        },
+      ]
+
+    });
+  }
+
+
+  function nameFormatter(value, row, index) {
+    return [
+      '<a class="like" href="javascript:void(0)" title="Like">',
+      '<i class="glyphicon glyphicon-list-alt"></i>',
+      '</a>  ',
+
+    ].join('');
+  }
+  window.act = {
+    'click .like': function(e, value, row, index) {
+
+      var url = '/devicelist/' + row['name'] + '/'
+      window.open(url, row['name']);
+      console.log(row['name'])
+    }
+
+  };
+
+  function queryParams(params) {
+    return { //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+      limit: params.limit, //页面大小
+      offset: params.offset //页码
+      //name: $("#txt_name").val()//关键字查询
+    };
+  }
+  var ButtonInit = function() {
+    var oInit = new Object();
+    var postdata = {};
+
+    oInit.Init = function() {
+      //初始化页面上面的按钮事件
+    };
+
+    return oInit;
+  };
+  function rowStyle(row, index) {
+
+
+      return {
+        classes: 'text-nowrap another-class',
+        css: {"font-size": "28px","color": "black"}
+      };
+    }
+  function responseHandler(res) {
+    var resultStr = $.parseJSON(res);
+    $.each(resultStr.Items, function(i, row) {
+      row.operate = "";
+      row.Id = row.RoleId;
+    });
+    if (res) {
+      return {
+        "rows": res.result,
+        "total": res.totalCount
+      };
+    } else {
+      return {
+        "rows": [],
+        "total": 0
+      };
+    }
+  }
+
+  // function rowStyle(row, index) {
+  //
+  //     if(row.status == '1'){ // possibly you map another property, it depends on your setting.
+  //
+  //         return {classes : "success" }
+  //     }
+  //     if(row.status == '2'){ // possibly you map another property, it depends on your setting.
+  //
+  //         return {classes : "danger" }
+  //     }
+  //     return {};
+  // }
+</script>
+
+<!-- <script>
+  var $bt_add = $('#btn_add'),
+    $bt_delete = $('#btn_delete'),
+    $bt_edit = $('#btn_edit'),
+    $mytable = $('#table');
+
+  function nameFormatter(value, row, index) {
+    return [
+      '<a class="like" href="javascript:void(0)" title="Like">',
+      '<i class="glyphicon glyphicon-heart"></i>',
+      '</a>',
+      '<a class="edit ml10" href="javascript:void(0)" title="Edit">',
+      '<i class="glyphicon glyphicon-edit"></i>',
+      '</a>',
+      '<a class="remove ml10" href="javascript:void(0)" title="Remove">',
+      '<i class="glyphicon glyphicon-remove"></i>',
+      '</a>'
+    ].join("")
+  }
+
+  window.actionEvents = {
+    'click .like': function(e, value, row, index) {
+      alert('You click like icon, row: ' + JSON.stringify(row));
+      console.log(value, row, index);
+    },
+    'click .edit': function(e, value, row, index) {
+      alert('You click edit icon, row: ' + JSON.stringify(row));
+      console.log(value, row, index);
+    },
+    'click .remove': function(e, value, row, index) {
+      alert('You click remove icon, row: ' + JSON.stringify(row));
+      console.log(value, row, index);
+    }
+  };
+
+
+
+
+      function numberformatter(value, row, index) {
+        return index + 1;
+      }
+
+
+      function queryParams(params) {
+        return { //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+          limit: params.limit, //页面大小
+          offset: params.offset //页码
+          //name: $("#txt_name").val()//关键字查询
+        };
+      }
+      var ButtonInit = function() {
+        var oInit = new Object();
+        var postdata = {};
+
+        oInit.Init = function() {
+          //初始化页面上面的按钮事件
+        };
+
+        return oInit;
+      };
+
+      function responseHandler(res) {
+        var resultStr = $.parseJSON(res);
+        $.each(resultStr.Items, function(i, row) {
+          row.operate = "";
+          row.Id = row.RoleId;
+        });
+        if (res) {
+          return {
+            "rows": res.result,
+            "total": res.totalCount
+          };
+        } else {
+          return {
+            "rows": [],
+            "total": 0
+          };
+        }
+      }
+  $(function() {
+
+
+    // var oButtonInit = new ButtonInit();
+    // oButtonInit.Init();
+    $($mytable).bootstrapTable({
+      method: 'post',
+      striped: true,
+      toolbar: "#toolbar",
+      search: true,
+      showRefresh: true,
+      showToggle: true,
+      showColumns: true,
+      detailview: true,
+      cardView: false,
+      detailView: false,
+      // clickToSelect: true,
+      height: $(window).height() - 110,
+      width: $(window).width(),
+      minimumCountColumns: 2,
+      showPaginationSwitch: true,
+      queryParams: queryParams,
+      pagination: true,
+      pagelist: [10, 25, 50],
+      sidePagination: "server",
+      url: '/queryRescue/',
+      responsehandler: responseHandler,
+      // rowStyle:rowStyle,
+      showExport: true,
+      exportDataType: 'all',
+      columns: [{
+          checkbox: true
+        },
+
+        {
+          field: '',
+          title: 'Sort No.',
+          formatter: function(value, row, index) {
+            return index + 1;
+          }
+        },
+        {
+          field: 'name',
+          title: 'Name',
+          align: 'center',
+          valign: 'middle',
+          sortable: true
+        },
+        {
+          field: 'commander',
+          title: 'Commander',
+          align: 'center',
+          valign: 'middle',
+          sortable: true,
+          // cellStyle: function(value){
+          //         if(value=='1'){
+          //             return { classes: 'success' };
+          //         }else{
+          //             return { classes: 'danger' };
+          //         }
+          //     },
+
+        },
+        {
+          field: 'lat',
+          title: 'Lat',
+          align: 'center',
+          valign: 'middle',
+          sortable: true,
+        },
+        {
+          field: 'lon',
+          title: 'Lon',
+          align: 'center',
+          valign: 'middle',
+          sortable: true,
+        },
+        {
+          field: 'timestart',
+          title: 'TimeStart',
+          align: 'center',
+          valign: 'middle',
+          sortable: true,
+        },
+        {
+          field: '',
+          title: 'Look Device',
+          align: 'center',
+          valign: 'middle',
+          events: actionEvents,
+          formatter: nameFormatter,
+
+
+        },
+      ]
+    });
+
+
+
+    $bt_add.click(function() {
+      window.open('http://127.0.0.1:8000/easyRescue', 'Add', config = 'height=500,width=600');
+    });
+    $bt_delete.click(function() {
+      var mydata = JSON.stringify($mytable.bootstrapTable('getSelections'));
+
+      // let user = JSON.parse({'data':'me'});
+      // console.log(user)
+      // var namearray = []
+      // for (i = 0; i < mydata.length; i++)
+      // {
+      //   console.log(mydata[i])
+      // }
+      $.post("http://127.0.0.1:8000/deleteRescue/", {
+        'mydata': mydata
+      }, function(data, status) {
+        alert("Data: " + data.statue);
+      });
+
+      $("#table").bootstrapTable('refresh');
+      // alert('getSelections: ' + JSON.stringify($mytable.bootstrapTable('getSelections')));
+    });
+    $bt_edit.click(function() {
+      if ($mytable.bootstrapTable('getSelections').length == 1) {
+
+        var name = $mytable.bootstrapTable('getSelections')[0]['name']
+        var url = 'http://127.0.0.1:8000/easyEditRescue/' + name + '/'
+        console.log(url)
+        window.open(url, 'Edit', config = 'height=500,width=600');
+
+      } else {
+        alert('Please Just one');
+      }
+      // alert($mytable.bootstrapTable('getSelections').length)
+      // window.open('http://127.0.0.1:8000/easyRescue', 'Add', config='height=500,width=600');
+    });
+
+
+  });
+</script> -->
+<!-- <script src="/static/js/list.js"></script> -->
+</body>
+
+</html>

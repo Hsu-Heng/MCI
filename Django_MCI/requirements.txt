@@ -1,0 +1,12 @@
+certifi==2018.1.18
+dataclasses==0.4
+Django==2.0.2
+django-filter==1.1.0
+djangorestframework==3.7.7
+djongo==1.2.20
+Markdown==2.6.11
+pymongo==3.6.1
+pytz==2018.3
+sklearn-pandas==1.6.0
+sklearn2pmml==0.34.0
+sqlparse==0.2.4

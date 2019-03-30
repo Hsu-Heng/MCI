@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+  <head>
+    <!-- <title>BootstrapTable Server Mode Test</title>
+    <head> --><html class="no-js">
+  	<meta charset="utf-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<title>Device List &mdash; 科技部大量傷病計劃</title>
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
+  	<meta name="keywords" content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+  	<meta name="author" content="FreeHTML5.co" />
+
+    <!--
+  	//////////////////////////////////////////////////////
+
+  	FREE HTML5 TEMPLATE
+  	DESIGNED & DEVELOPED by FreeHTML5.co
+
+  	Website: 		http://freehtml5.co/
+  	Email: 			info@freehtml5.co
+  	Twitter: 		http://twitter.com/fh5co
+  	Facebook: 		https://www.facebook.com/fh5co
+
+  	//////////////////////////////////////////////////////
+  	 -->
+
+    	<!-- Facebook and Twitter integration -->
+  	<meta property="og:title" content=""/>
+  	<meta property="og:image" content=""/>
+  	<meta property="og:url" content=""/>
+  	<meta property="og:site_name" content=""/>
+  	<meta property="og:description" content=""/>
+  	<meta name="twitter:title" content="" />
+  	<meta name="twitter:image" content="" />
+  	<meta name="twitter:url" content="" />
+  	<meta name="twitter:card" content="" />
+
+  	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  	<link rel="shortcut icon" href="favicon.ico">
+
+  	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
+
+  	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/bootstrap-table-develop/docs/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bootstrap-table-develop/src/bootstrap-table.css">
+    <link rel="stylesheet" href="//rawgit.com/vitalets/x-editable/master/dist/bootstrap3-editable/css/bootstrap-editable.css">-
+    <script src="/static/bootstrap-table-develop/dist/bootstrap-table.js"></script>
+    <script src="/static/bootstrap-table-develop/dist/locale/bootstrap-table-zh-TW.min.js"></script>
+    <script src="/static/bootstrap-table-develop/dist/bootstrap-table.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+    	<!-- Animate.css -->
+    	<link rel="stylesheet" href="/static/css/animate.css">
+    	<!-- Icomoon Icon Fonts-->
+    	<link rel="stylesheet" href="/static/css/icomoon.css">
+    	<!-- Simple Line Icons -->
+    	<link rel="stylesheet" href="/static/css/simple-line-icons.css">
+    	<!-- Bootstrap  -->
+    	<link rel="stylesheet" href="/static/css/bootstrap.css">
+    	<!-- Theme style  -->
+    	<link rel="stylesheet" href="/static/css/style.css">
+
+    	<!-- Modernizr JS -->
+    	<script src="/static/js/modernizr-2.6.2.min.js"></script>
+    	<!-- FOR IE9 below -->
+    	<!--[if lt IE 9]>
+    	<script src="js/respond.min.js"></script>
+    	<![endif]-->
+
+  </head>
+  <div id="fh5co-page">
+	<header id="fh5co-header" role="banner">
+		<div class="container">
+			<div class="header-inner">
+				<h1 id="rescue"><i class="icon-ambulance"></i><a href="about.html">{{obj.rescuename}}</a></h1>
+				<nav role="navigation">
+					<ul>
+						<!-- <li><a href="/index">首頁</a></li> -->
+						<li><a class="active" href="/rescuelist">救援行動</a></li>
+						<!-- <li><a href="portfolio.html">Portfolio</a></li>
+						<li><a href="services.html">Services</a></li> -->
+						<!-- <li><a class="active" href="/devicelist/"+{{obj.rescuename}}+"/">{{obj.rescuename}}</a></li> -->
+						<li><a href="/admin">後端</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+  <body>
+
+    <div class = "container">
+      <!-- <h1 id="rescue" value={{obj.rescuename}}><font face="fantasy">{{obj.rescuename}}</font></h1> -->
+
+        <!-- <div id="toolbar" class="btn-group">
+            <button id="btn_add" type="button" class="btn btn-default"  onclick="location.href='/createDevice'">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
+
+            </button>
+            <button id="btn_edit" type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>編輯
+            </button>
+            <button id="btn_delete" type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>刪除
+            </button>
+        </div> -->
+        <div id="toolbar" class="btn-group">
+          <button id="btn_excel" type="button" class="btn btn-default">
+                  <span class="icon-file-text" aria-hidden="true"></span> 匯出表格
+              </button>
+
+        </div>
+      <table border="1"  id="table">
+      </table>
+      <div class="row">
+      <div class="col-xs-5">
+      <div  id="curve_sends" style="width: 600px; height: 600px"></div>
+      </div>
+      <div class="col-xs-5">
+      <div id="curve_status" style="width: 600px; height: 600px"></div>
+      </div>
+  <div class="col-xs-4">
+
+
+      </div>
+      </div>
+        <div id="map"></div>
+    </div>
+
+    <footer id="fh5co-footer" role="contentinfo">
+
+      <div class="container">
+        <div class="col-md-3 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
+          <h3>關於我們</h3>
+          <p>科技部大量傷病計劃</p>
+        </div>
+        <div class="col-md-6 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
+          <h3>提供服務</h3>
+          <ul class="float">
+            <li><a href="#">智慧手環</a></li>
+            <li><a href="#">雲端平台</a></li>
+            <li><a href="#">救難APP開發</a></li>
+
+          </ul>
+          <!-- <ul class="float">
+            <li><a href="#">Free Bootstrap Template</a></li>
+            <li><a href="#">Free HTML5 Template</a></li>
+            <li><a href="#">Free HTML5 &amp; CSS3 Template</a></li>
+          </ul> -->
+
+        </div>
+
+        <div class="col-md-2 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
+          <h3>Follow Us</h3>
+          <ul class="fh5co-social">
+            <li><a href="#"><i class="icon-twitter"></i> 中興大學</a></li>
+            <li><a href="#"><i class="icon-facebook"></i>彰化師範大學</a></li>
+            <!-- <li><a href="#"><i class="icon-google-plus"></i> Google Plus</a></li>
+            <li><a href="#"><i class="icon-instagram"></i> Instagram</a></li> -->
+          </ul>
+        </div>
+
+
+        <div class="col-md-12 fh5co-copyright text-center">
+          <p>&copy; 2017 科技部大量傷病計劃 <span>Designed with KDD <i class="icon-heart"></i> by <a href="http://freehtml5.co/" target="_blank">Sponsor FreeHTML5.co</a> Demo Images by <a href="http://unsplash.com/" target="_blank">Unsplash</a></span></p>
+        </div>
+
+      </div>
+    </footer>
+    	</div>
+      <script>
+      var $bt_add = $('#btn_add');
+      var $btn_excel = $('#btn_excel');
+      var rescue = document.querySelector('#rescue').textContent;
+      // $window = $(window);
+      $(function() {
+
+        initTable();
+        var oButtonInit = new ButtonInit();
+        oButtonInit.Init();
+        $btn_excel.click(function(){
+        JSONToExcelConvertor("report");
+        });
+        // $bt_add.click(function() {
+        //   "<a href=/createDevice/"+">"+"</a>";
+        //   // window.open('/createDevice', 'Add', config = 'height=500,width=600');
+        // });
+        // initMap();
+
+      });
+      function JSONToExcelConvertor(FileName,title,filter) {
+        var jsondata = $.ajax({
+          url:'{% url 'excel' rescuename=obj.rescuename %}',
+          dataType: "json",
+          async: false
+          }).responseText;
+        var JSONData = JSON.parse(jsondata);
+        console.log(JSONData);
+          if(!JSONData)
+              return;
+          //转化json为object
+          var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
+
+          var excel = "<table>";
+
+          //设置表头
+          var row = "<tr>";
+
+          if(title)
+          {
+              //使用标题项
+              for (var i in title) {
+                  row += "<th align='center'>" + title[i] + '</th>';
+              }
+
+          }
+          else{
+              //不使用标题项
+              for (var i in arrData[0]) {
+                  row += "<th align='center'>" + i + '</th>';
+              }
+           }
+
+              excel += row + "</tr>";
+
+          //设置数据
+          for (var i = 0; i < arrData.length; i++) {
+              var row = "<tr>";
+
+              for (var index in arrData[i]) {
+                  //判断是否有过滤行
+                  if(filter)
+                  {
+                      if(filter.indexOf(index)==-1)
+                      {
+                           var value = arrData[i][index] == null ? "" : arrData[i][index];
+                           row += '<td>' + value + '</td>';
+                      }
+                  }
+                  else
+                  {
+                       var value = arrData[i][index] == null ? "" : arrData[i][index];
+                       row += "<td align='center'>" + value + "</td>";
+                  }
+              }
+
+              excel += row + "</tr>";
+                  }
+
+                  excel += "</table>";
+
+                  var excelFile = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:x='urn:schemas-microsoft-com:office:excel' xmlns='http://www.w3.org/TR/REC-html40'>";
+          excelFile += '<meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8">';
+          excelFile += '<meta http-equiv="content-type" content="application/vnd.ms-excel';
+          excelFile += '; charset=UTF-8">';
+          excelFile += "<head>";
+          excelFile += "<!--[if gte mso 9]>";
+          excelFile += "<xml>";
+          excelFile += "<x:ExcelWorkbook>";
+          excelFile += "<x:ExcelWorksheets>";
+          excelFile += "<x:ExcelWorksheet>";
+          excelFile += "<x:Name>";
+          excelFile += "{worksheet}";
+          excelFile += "</x:Name>";
+          excelFile += "<x:WorksheetOptions>";
+          excelFile += "<x:DisplayGridlines/>";
+          excelFile += "</x:WorksheetOptions>";
+          excelFile += "</x:ExcelWorksheet>";
+          excelFile += "</x:ExcelWorksheets>";
+          excelFile += "</x:ExcelWorkbook>";
+          excelFile += "</xml>";
+          excelFile += "<![endif]-->";
+          excelFile += "</head>";
+          excelFile += "<body>";
+          excelFile += excel;
+          excelFile += "</body>";
+          excelFile += "</html>";
+
+
+          var uri = 'data:application/vnd.ms-excel;charset=utf-8,' + encodeURIComponent(excelFile);
+
+          var link = document.createElement("a");
+          link.href = uri;
+
+          link.style = "visibility:hidden";
+          link.download = FileName + ".xls";
+
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+      }
+      // function hover(){
+      //     $("#table").hoverpulse();
+      //
+      // }
+      function initTable() {
+        $("#table").bootstrapTable({
+          resizable: true,
+          headerOnly: true,
+          method: 'post',
+          striped: false,
+          toolbar: "#toolbar",
+          search: true,
+          showRefresh: true,
+          showToggle: true,
+          showColumns: true,
+          detailview: true,
+          cardView: false,
+          detailView: false,
+          // clickToSelect: true,
+          // height: $(window).height() - 110,
+          // width: $(window).width(),
+          minimumCountColumns: 2,
+          showPaginationSwitch: true,
+          queryParams: queryParams,
+          pagination: true,
+          pagelist: [10, 25, 50],
+          sidePagination: "server",
+          url: '/queryDevice/',
+          responsehandler: responseHandler,
+          rowStyle:rowStyle,
+          // cellStyle:cellStyle,
+          showExport: true,
+          exportDataType: 'all',
+          columns: [
+            {
+              field: 'DeviceId',
+              title: '裝置',
+              align: 'center',
+              valign: 'middle',
+              sortable: true,
+              formatter: LinkFormatter,
+            },
+            {
+              field: 'type',
+              title: '檢傷',
+              align: 'center',
+              valign: 'middle',
+              cellStyle: function(value){
+                var color = "green";
+                if(value == "死亡"){
+                  color = "black"
+                }
+                else if(value == "極危險"){
+                  color = "	#FF3333"
+                }
+                else if(value == "危險" ){
+                  color = "#EEEE00"
+                }
+
+
+                  return {
+                    classes: 'text-nowrap another-class',
+                    css: {"background-color":color,"font-size": "28px", "color":"white"}
+                  };
+
+              },
+              sortable: true
+            },
+            {
+              field: 'hospital',
+              title: '送診',
+              align: 'center',
+              valign: 'middle',
+              cellStyle: function(value){
+                  return { css: {"color": "#000000","font-size": "28px"} };
+              },
+              sortable: true
+            },
+            {
+              field: 'heart',
+              title: '心跳',
+              align: 'center',
+              valign: 'middle',
+              cellStyle: function(value){
+                  return { css: {"color": "#000000","font-size": "28px"} };
+              },
+              sortable: true
+            },
+            {
+              field: 'so2',
+              title: '血氧',
+              align: 'center',
+              valign: 'middle',
+              cellStyle: function(value){
+                  return { css: {"color": "#000000","font-size": "28px"} };
+              },
+              sortable: true
+            },
+
+          ]
+
+
+        });
+      }
+      // function cellStyle(value, row, index, field) {
+      //   return {
+      //     classes: 'text-nowrap another-class',
+      //     css: {"background-color": "success", "font-size": "30px","font-color":"#FFFFFF"}
+      //   };
+      // }
+
+      function rowStyle(row, index) {
+        var color = "green"
+        if(row.healthtype == 1){
+          color = "black"
+        }
+        else if(row.healthtype == 2){
+          color = "	#FF3333"
+        }
+        else if(row.healthtype == 3){
+          color = "#EEEE00"
+        }
+        else if(row.healthtype == 3){
+          color = "#CCFF99"
+        }
+
+          return {
+            classes: 'text-nowrap another-class',
+            css: {"font-size": "30px"}
+          };
+        }
+       function ActionFormatter(value) {
+           return '<a href="javascript:void(0)" onclick="Details('+ value +')">Details</a>';
+       }
+       function LinkFormatter(value, row, index) {
+
+         return "<a href=/device/"+row.pk+"/" +" >"+value+" </a>";
+       }
+      function queryParams(params) {
+        return { //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+          limit: params.limit, //页面大小
+          offset: params.offset, //页码
+          rescue:rescue
+          //name: $("#txt_name").val()//关键字查询
+        };
+      }
+      var ButtonInit = function() {
+        var oInit = new Object();
+        var postdata = {};
+
+        oInit.Init = function() {
+          //初始化页面上面的按钮事件
+        };
+
+        return oInit;
+      };
+
+      function responseHandler(res) {
+        var resultStr = $.parseJSON(res);
+        $.each(resultStr.Items, function(i, row) {
+          row.operate = "";
+          row.Id = row.RoleId;
+        });
+        if (res) {
+          console.log(rescue);
+          return {
+            "rows": res.result,
+            "total": res.totalCount,
+
+
+          };
+        } else {
+          return {
+            "rows": [],
+            "total": 0,
+
+          };
+        }
+      }
+
+
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart(){
+
+      var jsondata = $.ajax({
+        url:'{% url 'statuschart' rescuename=obj.rescuename %}',
+        dataType: "json",
+        async: false
+        }).responseText;
+      var data = JSON.parse(jsondata);
+      console.log(data);
+      var stasusdata = [['病患狀態', '百分比']]
+      var colors = {
+      '黑色-死亡': 'black',
+      '綠色-輕傷': 'green',
+      '紅色-極危險': 'red',
+      '黃色-危險': '#EEEE00'
+    };
+    var slices = [];
+      for (var key in data.stasus) {
+        var sd = []
+        sd.push(key)
+        sd.push(data.stasus[key])
+        slices.push({
+        color: colors[key]})
+        stasusdata.push(sd)
+      }
+      var colors = {
+      '送診': '#0066FF',
+      '待送診': '#99FFFF'
+      };
+      var slices1 = [];
+      var inhospitaldata = [['配送狀態', '百分比']]
+      for (var key in data.inhospital) {
+        var sd = []
+        sd.push(key)
+        sd.push(data.inhospital[key])
+        inhospitaldata.push(sd)
+        slices1.push({
+        color: colors[key]})
+
+      }
+      console.log(slices1);
+      var options = {
+        titleTextStyle: {    // any HTML string color ('red', '#cc00cc')
+        fontName: "病患統計", // i.e. 'Times New Roman'
+        fontSize: 28, // 12, 18 whatever you want (don't specify px)
+        bold: true,
+
+        },pieSliceTextStyle:{
+          fontSize: 24
+        },sliceVisibilityThreshold: 0,
+          title: '病患統計',
+          slices: slices,
+          is3D: true,
+          legend: {position: 'top', textStyle: {fontSize: 12}}
+
+        };
+      var ds = google.visualization.arrayToDataTable(stasusdata)
+      console.log(ds)
+      var chart_stasusdata = new google.visualization.PieChart(document.getElementById('curve_status'));
+      chart_stasusdata.draw(ds, options);
+      var options = {
+        titleTextStyle: {    // any HTML string color ('red', '#cc00cc')
+        fontName: "送診狀況", // i.e. 'Times New Roman'
+        fontSize: 28,
+        bold: true, // 12, 18 whatever you want (don't specify px)
+        },
+        pieSliceTextStyle:{
+          fontSize: 24
+        },
+        sliceVisibilityThreshold: 0,
+          title: '送診狀況',
+          slices: slices1,
+          is3D: true,
+          legend: {position: 'top', textStyle: {fontSize: 12}}
+        };
+      var sdds = google.visualization.arrayToDataTable(inhospitaldata)
+      var chart_inhospitaldata = new google.visualization.PieChart(document.getElementById('curve_sends'));
+      chart_inhospitaldata.draw(sdds, options);
+      }
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'),{
+          center: {lat: 24.12851, lng: 120.66865},
+          zoom: 15
+        });
+        var jsondata = $.ajax({
+          url:'{% url 'trajors' rescuename=obj.rescuename %}',
+          dataType: "json",
+          async: false
+          }).responseText;
+          var objs = JSON.parse(jsondata);
+          var infowindow = new google.maps.InfoWindow();
+          for(var key in objs.now){
+            if(objs.now[key].hospital){
+              var icon = {
+                  url: "/static/images/abulance.png", // url
+                  scaledSize: new google.maps.Size(50, 50), // scaled size
+                  origin: new google.maps.Point(0,0), // origin
+                  anchor: new google.maps.Point(0, 0) // anchor
+              };
+              var marker = new google.maps.Marker({
+  							position: new google.maps.LatLng(objs.now[key].lat, objs.now[key].lon),
+                icon: icon,
+  							map: map
+  						});
+            }
+            else if(objs.now[key].hospital == false) {
+              var icon = {
+                  url: "/static/images/patients.png", // url
+                  scaledSize: new google.maps.Size(50, 50), // scaled size
+                  origin: new google.maps.Point(0,0), // origin
+                  anchor: new google.maps.Point(0, 0) // anchor
+              };
+              var marker = new google.maps.Marker({
+  							position: new google.maps.LatLng(objs.now[key].lat, objs.now[key].lon),
+                icon:icon,
+  							map: map
+  						});
+            }
+
+            var lineCoordinates = [];
+            var arrays = objs.traj[key];
+            for (var i = 0; i < arrays.length; i++) {
+    					lineCoordinates.push(new google.maps.LatLng(arrays[i][0], arrays[i][1]));
+    					}
+            var color;
+            if(objs.now[key].color==1){
+              color = "#000000";
+            }
+            else if(objs.now[key].color==2){
+            color = " #CC0000";
+            }
+            else if(objs.now[key].color==3){
+            color = " #FFFF33";
+            }
+            else if(objs.now[key].color==4){
+            color = " #66DD00";
+            }
+            var marker = new google.maps.Marker({
+              position: lineCoordinates[lineCoordinates.length-1],
+              icon: "http://maps.google.com/mapfiles/kml/shapes/hospitals.png",
+              map: map
+            });
+              var flightPath = new google.maps.Polyline({
+              path: lineCoordinates,
+              geodesic: true,
+              strokeColor: color,
+              strokeOpacity: 1.0,
+              strokeWeight: 2
+            });
+
+            flightPath.setMap(map);
+          }
+
+      }
+      ////rescuename=obj.rescuename %
+      // function initMap() {
+      //
+			// 	var jsondata = $.ajax({
+			// 		url: '{% url '
+			// 		trajors ' rescuename=obj.rescuename %}',
+			// 		dataType: "json",
+			// 		async: false
+			// 	}).responseText;
+			// 	obj = JSON.parse(jsondata);
+			// 	console.log(obj)
+			// 	var locations = []
+			// 	for (i = 0; i < obj.length; i++) {
+			// 		locations.push([obj.timestamp[i], obj.lat[i], obj.lon[i]])
+			// 	}
+			// 	var map = new google.maps.Map(document.getElementById('map'), {
+			// 		zoom: 17,
+			// 		center: new google.maps.LatLng(locations[obj.length - 1][1], locations[obj.length - 1][2])
+			// 	});
+			// 	console.log(locations)
+			// 	var infowindow = new google.maps.InfoWindow();
+      //
+			// 	var marker, i;
+			// 	var lineCoordinates = [];
+			// 	for (i = 0; i < locations.length; i++) {
+			// 		lineCoordinates.push(new google.maps.LatLng(locations[i][1], locations[i][2]))
+			// 		if (i == 0 || i == locations.length - 1) {
+			// 			marker = new google.maps.Marker({
+			// 				position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+			// 				map: map
+			// 			});
+			// 		}
+      //
+			// 		// google.maps.event.addListener(marker, 'click', (function(marker, i) {
+			// 		//   return function() {
+			// 		//     infowindow.setContent(locations[i][0]);
+			// 		//     infowindow.open(map, marker);
+			// 		//   }
+			// 		// })(marker, i));
+      //
+			// 	}
+			// 	var lineSymbol = {
+			// 		path: google.maps.SymbolPath.CIRCLE,
+			// 		scale: 8,
+			// 		strokeColor: '#393'
+			// 	};
+			// 	line = new google.maps.Polyline({
+			// 		path: lineCoordinates,
+			// 		icons: [{
+			// 			icon: lineSymbol,
+			// 			offset: '100%'
+			// 		}],
+			// 		map: map
+			// 	});
+      // }
+				// animateCircle();
+
+
+			// function animateCircle() {
+			// 	var count = 0;
+			// 	window.setInterval(function() {
+			// 		count = (count + 1) % 200;
+      //
+			// 		var icons = line.get('icons');
+			// 		icons[0].offset = (count / 2) + '%';
+			// 		line.set('icons', icons);
+			// 	}, 150);
+			// }
+			// google.maps.event.addDomListener(window, 'load', initialize);
+      ////
+
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDhQ_lmn45fSm5tDc2EEEWPRSdnr1Vfqk&callback=initMap" async defer></script>
+  </body>
+  </html>

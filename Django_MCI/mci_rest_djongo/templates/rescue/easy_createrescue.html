@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+
+<html lang="en-us" >
+<head>
+<title>Add rescue</title>
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css" />
+
+
+<script type="text/javascript" src="/admin/jsi18n/"></script>
+<script type="text/javascript" src="/static/admin/js/vendor/jquery/jquery.js"></script>
+<script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
+<script type="text/javascript" src="/static/admin/js/core.js"></script>
+<script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
+<script type="text/javascript" src="/static/admin/js/actions.js"></script>
+<script type="text/javascript" src="/static/admin/js/urlify.js"></script>
+<script type="text/javascript" src="/static/admin/js/prepopulate.js"></script>
+<script type="text/javascript" src="/static/admin/js/vendor/xregexp/xregexp.js"></script>
+<script type="text/javascript" src="/static/admin/js/calendar.js"></script>
+<script type="text/javascript" src="/static/admin/js/admin/DateTimeShortcuts.js"></script>
+
+
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css" />
+
+
+<meta name="robots" content="NONE,NOARCHIVE" />
+</head>
+
+
+<body class="popup  app-app model-rescue change-form"
+  data-admin-utc-offset="28800">
+
+<!-- Container -->
+<div id="container">
+    <!-- Content -->
+    <div id="content" class="colM">
+
+        <h1>Add rescue</h1>
+        <div id="content-main">
+
+          <form enctype="multipart/form-data" action="" method="post" id="rescue_form" novalidate><input type='hidden' name='csrfmiddlewaretoken'
+            value='NUDGUFd8YVVUH7RTg2Ri03LZGLk3zTnrg4CLVeuwoe0ocmclJDbBzhj1T0VuhECy' />
+<div>
+
+
+  <fieldset class="module aligned ">
+
+
+
+        <div class="form-row field-name">
+
+
+                <div>
+
+
+                        <label class="required" for="id_name">Name:</label>
+
+                            <input type="text" name="name" class="vTextField" maxlength="100" required id="id_name" />
+
+
+
+                </div>
+
+        </div>
+
+        <div class="form-row field-commander">
+
+
+                <div>
+
+
+                        <label class="required" for="id_commander">Commander:</label>
+
+                            <input type="text" name="commander" class="vTextField" maxlength="100" required id="id_commander" />
+
+
+
+                </div>
+
+        </div>
+
+        <div class="form-row field-lon">
+
+
+                <div>
+
+
+                        <label class="required" for="id_lon">Lon:</label>
+
+                            <input type="number" name="lon" step="any" required id="id_lon" />
+
+
+
+                </div>
+
+        </div>
+
+        <div class="form-row field-lat">
+
+
+                <div>
+
+
+                        <label class="required" for="id_lat">Lat:</label>
+
+                            <input type="number" name="lat" step="any" required id="id_lat" />
+
+
+
+                </div>
+
+        </div>
+
+        <div class="form-row field-timestart">
+
+
+                <div>
+
+
+                        <label class="required" for="id_timestart_0">Timestart:</label>
+
+                            <p class="datetime">
+  Date: <input type="text" name="timestart_0" value={{obj.startdate}} class="vDateField" size="10" required id="id_timestart_0" />
+
+<br />
+  Time: <input type="text" name="timestart_1" value={{obj.starttime}} class="vTimeField" size="8" required id="id_timestart_1" />
+
+
+</p><input type="hidden" name="initial-timestart_0" value={{obj.startdate}} id="initial-id_timestart_0"/><input type="hidden" name="initial-timestart_1" value={{obj.starttime}} id="initial-id_timestart_1" />
+
+
+
+                </div>
+
+        </div>
+
+        <div class="form-row field-timestop">
+
+
+                <div>
+
+
+                        <label class="required" for="id_timestop_0">Timestop:</label>
+
+                            <p class="datetime">
+  Date: <input type="text" name="timestop_0" value={{obj.startdate}} class="vDateField" size="10" required id="id_timestop_0" />
+
+<br />
+  Time: <input type="text" name="timestop_1" value={{obj.starttime}} class="vTimeField" size="8" required id="id_timestop_1" />
+
+
+</p><input type="hidden" name="initial-timestop_0" value={{obj.startdate}} id="initial-id_timestop_0" />
+<input type="hidden" name="initial-timestop_1" value={{obj.starttime}} id="initial-id_timestop_1" />
+
+
+
+                </div>
+
+        </div>
+
+</fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="submit-row">
+<input type="submit" value="Save" class="default" name="_save" />
+
+
+
+
+</div>
+
+
+
+    <script type="text/javascript"
+            id="django-admin-form-add-constants"
+            src="/static/admin/js/change_form.js"
+
+                data-model-name="rescue"
+            >
+    </script>
+
+
+
+
+<script type="text/javascript"
+        id="django-admin-prepopulated-fields-constants"
+        src="/static/admin/js/prepopulate_init.js"
+        data-prepopulated-fields="[]">
+</script>
+
+
+</div>
+</form></div>
+
+
+        <br class="clear" />
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+</div>
+<!-- END Container -->
+
+</body>
+</html>

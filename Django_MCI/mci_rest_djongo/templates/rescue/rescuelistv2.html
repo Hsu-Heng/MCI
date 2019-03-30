@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<head>
+  <!-- <title>BootstrapTable Server Mode Test</title>
+    <head> -->
+  <html class="no-js">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Lesser &mdash; Free HTML5 Bootstrap Website Template by FreeHTML5.co</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
+  <meta name="keywords" content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+  <meta name="author" content="FreeHTML5.co" />
+
+  <!--
+  	//////////////////////////////////////////////////////
+
+  	FREE HTML5 TEMPLATE
+  	DESIGNED & DEVELOPED by FreeHTML5.co
+
+  	Website: 		http://freehtml5.co/
+  	Email: 			info@freehtml5.co
+  	Twitter: 		http://twitter.com/fh5co
+  	Facebook: 		https://www.facebook.com/fh5co
+
+  	//////////////////////////////////////////////////////
+  	 -->
+
+  <!-- Facebook and Twitter integration -->
+  <meta property="og:title" content="" />
+  <meta property="og:image" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:site_name" content="" />
+  <meta property="og:description" content="" />
+  <meta name="twitter:title" content="" />
+  <meta name="twitter:image" content="" />
+  <meta name="twitter:url" content="" />
+  <meta name="twitter:card" content="" />
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
+
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="/static/bootstrap-table-develop/docs/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/bootstrap-table-develop/src/bootstrap-table.css">
+  <!-- <link rel="stylesheet" href="//rawgit.com/vitalets/x-editable/master/dist/bootstrap3-editable/css/bootstrap-editable.css">- -->
+  <script src="/static/js/jquery.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+  <script src="/static/bootstrap-table-develop/dist/bootstrap-table.js"></script>
+  <script src="/static/bootstrap-table-develop/dist/locale/bootstrap-table-zh-TW.min.js"></script>
+  <!-- <script src="/static/bootstrap-table-develop/dist/bootstrap-table.min.js"></script> -->
+
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="/static/css/animate.css">
+  <!-- Icomoon Icon Fonts-->
+  <link rel="stylesheet" href="/static/css/icomoon.css">
+  <!-- Simple Line Icons -->
+  <link rel="stylesheet" href="/static/css/simple-line-icons.css">
+  <!-- Bootstrap  -->
+  <link rel="stylesheet" href="/static/css/bootstrap.css">
+  <!-- Theme style  -->
+  <link rel="stylesheet" href="/static/css/style.css">
+
+  <!-- Modernizr JS -->
+  <script src="/static/js/modernizr-2.6.2.min.js"></script>
+  <!-- FOR IE9 below -->
+  <!--[if lt IE 9]>
+    	<script src="js/respond.min.js"></script>
+    	<![endif]-->
+
+</head>
+<div id="fh5co-page">
+  <header id="fh5co-header" role="banner">
+    <div class="container">
+      <div class="header-inner">
+        <h1><i class="sl-icon-energy"></i><a href="about.html">About</a></h1>
+        <nav role="navigation">
+          <ul>
+            <li><a href="http://127.0.0.1:8000/index">Home</a></li>
+            <li><a href="http://127.0.0.1:8000/query">Query</a></li>
+            <!-- <li><a href="portfolio.html">Portfolio</a></li>
+						<li><a href="services.html">Services</a></li> -->
+            <li><a class="active" href="http://127.0.0.1:8000/about">About</a></li>
+            <li><a href="http://127.0.0.1:8000/login">Login</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <body>
+
+    <div class="container">
+      <h1><font face="fantasy">KDD Rescue</font></h1>
+
+      <div id="toolbar" class="btn-group">
+        <button id="btn_add" type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>New
+            </button>
+        <button id="btn_edit" type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Edit
+            </button>
+        <button id="btn_delete" type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Delete
+            </button>
+      </div>
+      <table
+            data-toggle="table"
+            data-method = 'post'
+            data-striped: true
+            data-toolbar: "#toolbar"
+            data-search: true
+            data-show-refresh: true
+            data-show-toggle: true
+            data-show-columns: true
+            data-detail-view: true
+            data-card-view: false
+            data-detail-view: false
+            data-height: $(window).height() - 110
+            data-width: $(window).width()
+            data-minimum-count-columns: 2
+            data-show-pagination-switch: true
+            data-query-params: queryParams
+            data-pagination: true
+            data-pagelist: [10, 25, 50]
+            data-side-pagination: "server"
+            data-url: '/queryRescue/'
+            data-response-handler: responseHandler>
+        <thead>
+          <tr>
+            <!-- <th>data-checkbox="true"</th> -->
+            <th data-field = "" data-formatter="actionFormatter">Sort No.</th>
+            <th data-field = "name">Name</th>
+            <!-- <th>data-field="action" data-formatter="numberformatter" data-events="actionEvents">Action</th> -->
+          </tr>
+        </thead>
+      </table>
+    </div>
+
+    <footer id="fh5co-footer" role="contentinfo">
+
+      <div class="container">
+        <div class="col-md-3 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
+          <h3>About Us</h3>
+          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+        </div>
+        <div class="col-md-6 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
+          <h3>Our Services</h3>
+          <ul class="float">
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Branding &amp; Identity</a></li>
+            <li><a href="#">Free HTML5</a></li>
+            <li><a href="#">HandCrafted Templates</a></li>
+          </ul>
+          <ul class="float">
+            <li><a href="#">Free Bootstrap Template</a></li>
+            <li><a href="#">Free HTML5 Template</a></li>
+            <li><a href="#">Free HTML5 &amp; CSS3 Template</a></li>
+            <li><a href="#">HandCrafted Templates</a></li>
+          </ul>
+
+        </div>
+
+        <div class="col-md-2 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
+          <h3>Follow Us</h3>
+          <ul class="fh5co-social">
+            <li><a href="#"><i class="icon-twitter"></i> Twitter</a></li>
+            <li><a href="#"><i class="icon-facebook"></i> Facebook</a></li>
+            <li><a href="#"><i class="icon-google-plus"></i> Google Plus</a></li>
+            <li><a href="#"><i class="icon-instagram"></i> Instagram</a></li>
+          </ul>
+        </div>
+
+
+        <div class="col-md-12 fh5co-copyright text-center">
+          <p>&copy; 2016 Free HTML5 template. All Rights Reserved. <span>Designed with <i class="icon-heart"></i> by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> Demo Images by <a href="http://unsplash.com/" target="_blank">Unsplash</a></span></p>
+        </div>
+
+      </div>
+    </footer>
+</div>
+
+<script>
+function numberformatter(value, row, index)
+{
+  return index+1;
+}
+
+  function queryParams(params) {
+    return { //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+      limit: params.limit, //页面大小
+      offset: params.offset //页码
+      //name: $("#txt_name").val()//关键字查询
+    };
+  }
+  var ButtonInit = function() {
+    var oInit = new Object();
+    var postdata = {};
+
+    oInit.Init = function() {
+      //初始化页面上面的按钮事件
+    };
+
+    return oInit;
+  };
+
+  function responseHandler(res) {
+    var resultStr = $.parseJSON(res);
+    $.each(resultStr.Items, function(i, row) {
+      row.operate = "";
+      row.Id = row.RoleId;
+    });
+    if (res) {
+      return {
+        "rows": res.result,
+        "total": res.totalCount
+      };
+    } else {
+      return {
+        "rows": [],
+        "total": 0
+      };
+    }
+  }
+
+
+
+</script>
+<!-- <script src="/static/js/list.js"></script> -->
+</body>
+
+</html>
