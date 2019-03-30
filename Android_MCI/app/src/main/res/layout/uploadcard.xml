@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:paddingRight="5dp"
+    android:paddingLeft="5dp"
+    android:paddingTop="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:layout_gravity="center"
+    android:id="@+id/upload_card"
+    android:elevation="3dp"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    card_view:cardCornerRadius="1dp"
+    >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_margin="5dp"
+        android:paddingRight="5dp"
+        android:paddingLeft="5dp"
+        android:background="@drawable/status_green"
+        android:textColor="@color/cardview_dark_background"
+        android:layout_width="5dp"
+        android:layout_height="60dp"
+        android:id="@+id/upload_devicestatus"
+        />
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:id="@+id/upload_deviceid"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="裝置:" />
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:id="@+id/upload_name"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="姓名:請輸入" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:id="@+id/upload_sex"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="性別:請輸入" />
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:id="@+id/upload_age"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="年齡:請輸入" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:id="@+id/upload_perfusion"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="血氧:" />
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:id="@+id/upload_respirations"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="心跳:" />
+
+    </LinearLayout>
+    <TextView
+        android:layout_margin="5dp"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:id="@+id/upload_status"
+        android:background="@drawable/upload_red"
+         />
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+</android.support.v7.widget.CardView>

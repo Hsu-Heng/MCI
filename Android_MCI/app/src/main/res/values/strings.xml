@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">MCI</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="日期">日期</string>
+    <string name="selected_date">The date will be shown here.</string>
+    <string name="時間">時間</string>
+    <string name="GPS">GPS</string>
+    <string name="地址">地址</string>
+    <string name="Name">Name</string>
+    <string name="DeviceID">Device ID</string>
+    <string name="名字">名字</string>
+    <string name="性別">性別</string>
+    <string name="身高">身高</string>
+    <string name="體重">體重</string>
+    <string name="生日">生日</string>
+    <string name="描述">描述</string>
+    <string name="Commander">Commander</string>
+    <string name="title_activity_maps">Map</string>
+</resources>

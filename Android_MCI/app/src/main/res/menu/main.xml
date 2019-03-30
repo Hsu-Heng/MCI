@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_openAp"
+        android:orderInCategory="100"
+        android:title="開啟熱點"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_closeap"
+        android:orderInCategory="100"
+        android:title="關閉熱點"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_openUdp"
+        android:orderInCategory="100"
+        android:title="UDP開啟"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_closeUdp"
+        android:orderInCategory="100"
+        android:title="UDP關閉"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_clear"
+        android:orderInCategory="100"
+        android:title="清除"
+        app:showAsAction="never" />
+</menu>

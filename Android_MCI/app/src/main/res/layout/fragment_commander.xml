@@ -1,0 +1,146 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="12dp"
+    android:paddingRight="24dp"
+    android:columnCount="2"
+    android:orientation="vertical"
+    tools:context="com.kdd_hp_henry_morrison.mci.commander.Commander_Fragment">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            android:layout_row="0"
+            android:text="發生事件" />
+        <EditText
+            android:layout_row="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Commender_name"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            android:text="請輸入" />
+
+        <TextView
+            android:layout_row="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Commender_title"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            android:text="@string/Commander" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="3"
+        android:layout_column="0"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        android:text="@string/日期" />
+
+    <Button
+        android:id="@+id/date_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="4"
+        android:layout_column="0"
+        android:onClick="onDateClicked"
+        android:text="Pick date"/>
+
+    <TextView
+        android:id="@+id/date_textview"
+        android:layout_width="390dp"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_gravity="fill_horizontal"
+        android:layout_marginLeft="-200dip"
+        android:layout_row="5"
+        android:text="@string/selected_date"
+        android:textSize="19sp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        android:layout_row="6"
+        android:layout_column="0"
+        android:text="@string/時間" />
+
+    <Button
+        android:id="@+id/time_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="7"
+        android:layout_column="0"
+        android:onClick="onTimeClicked"
+        android:text="Pick Time"/>
+
+    <TextView
+        android:id="@+id/time_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="8"
+        android:layout_column="1"
+        android:textSize="19sp"
+        android:layout_marginLeft="-200dip"
+        android:text="@string/selected_date"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="9"
+        android:layout_column="0"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        android:id="@+id/getgps"
+        android:text="@string/GPS" />
+    <TextView
+        android:id="@+id/GPS_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="10"
+        android:layout_column="0"
+        android:textSize="19sp"
+        android:text="@string/selected_date"/>
+
+
+
+    <com.google.android.gms.maps.MapView
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_row="11"
+        android:layout_column="0"
+        class="com.google.android.gms.maps.MapFragment"
+        android:id="@+id/map_rescue"/>
+    <Button
+        android:paddingTop="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_row="12"
+        android:layout_column="0"
+        android:textSize="25sp"
+
+        android:id="@+id/upload"
+        android:text="新增"/>
+
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="test"-->
+        <!--/>-->
+</GridLayout>
+</ScrollView>
