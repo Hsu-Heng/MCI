@@ -92,20 +92,7 @@
   <body>
 
     <div class = "container">
-      <!-- <h1 id="rescue" value={{obj.rescuename}}><font face="fantasy">{{obj.rescuename}}</font></h1> -->
-
-        <!-- <div id="toolbar" class="btn-group">
-            <button id="btn_add" type="button" class="btn btn-default"  onclick="location.href='/createDevice'">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
-
-            </button>
-            <button id="btn_edit" type="button" class="btn btn-default">
-                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>編輯
-            </button>
-            <button id="btn_delete" type="button" class="btn btn-default">
-                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>刪除
-            </button>
-        </div> -->
+    
         <div id="toolbar" class="btn-group">
           <button id="btn_excel" type="button" class="btn btn-default">
                   <span class="icon-file-text" aria-hidden="true"></span> 匯出表格
@@ -200,24 +187,23 @@
         console.log(JSONData);
           if(!JSONData)
               return;
-          //转化json为object
+
           var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
 
           var excel = "<table>";
 
-          //设置表头
           var row = "<tr>";
 
           if(title)
           {
-              //使用标题项
+  
               for (var i in title) {
                   row += "<th align='center'>" + title[i] + '</th>';
               }
 
           }
           else{
-              //不使用标题项
+           
               for (var i in arrData[0]) {
                   row += "<th align='center'>" + i + '</th>';
               }
@@ -225,12 +211,12 @@
 
               excel += row + "</tr>";
 
-          //设置数据
+      
           for (var i = 0; i < arrData.length; i++) {
               var row = "<tr>";
 
               for (var index in arrData[i]) {
-                  //判断是否有过滤行
+             
                   if(filter)
                   {
                       if(filter.indexOf(index)==-1)
@@ -291,10 +277,7 @@
           link.click();
           document.body.removeChild(link);
       }
-      // function hover(){
-      //     $("#table").hoverpulse();
-      //
-      // }
+
       function initTable() {
         $("#table").bootstrapTable({
           resizable: true,
@@ -430,11 +413,11 @@
          return "<a href=/device/"+row.pk+"/" +" >"+value+" </a>";
        }
       function queryParams(params) {
-        return { //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
-          limit: params.limit, //页面大小
-          offset: params.offset, //页码
+        return { 
+          limit: params.limit, 
+          offset: params.offset, 
           rescue:rescue
-          //name: $("#txt_name").val()//关键字查询
+ 
         };
       }
       var ButtonInit = function() {
@@ -442,7 +425,7 @@
         var postdata = {};
 
         oInit.Init = function() {
-          //初始化页面上面的按钮事件
+        
         };
 
         return oInit;
@@ -628,77 +611,7 @@
           }
 
       }
-      ////rescuename=obj.rescuename %
-      // function initMap() {
-      //
-			// 	var jsondata = $.ajax({
-			// 		url: '{% url '
-			// 		trajors ' rescuename=obj.rescuename %}',
-			// 		dataType: "json",
-			// 		async: false
-			// 	}).responseText;
-			// 	obj = JSON.parse(jsondata);
-			// 	console.log(obj)
-			// 	var locations = []
-			// 	for (i = 0; i < obj.length; i++) {
-			// 		locations.push([obj.timestamp[i], obj.lat[i], obj.lon[i]])
-			// 	}
-			// 	var map = new google.maps.Map(document.getElementById('map'), {
-			// 		zoom: 17,
-			// 		center: new google.maps.LatLng(locations[obj.length - 1][1], locations[obj.length - 1][2])
-			// 	});
-			// 	console.log(locations)
-			// 	var infowindow = new google.maps.InfoWindow();
-      //
-			// 	var marker, i;
-			// 	var lineCoordinates = [];
-			// 	for (i = 0; i < locations.length; i++) {
-			// 		lineCoordinates.push(new google.maps.LatLng(locations[i][1], locations[i][2]))
-			// 		if (i == 0 || i == locations.length - 1) {
-			// 			marker = new google.maps.Marker({
-			// 				position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-			// 				map: map
-			// 			});
-			// 		}
-      //
-			// 		// google.maps.event.addListener(marker, 'click', (function(marker, i) {
-			// 		//   return function() {
-			// 		//     infowindow.setContent(locations[i][0]);
-			// 		//     infowindow.open(map, marker);
-			// 		//   }
-			// 		// })(marker, i));
-      //
-			// 	}
-			// 	var lineSymbol = {
-			// 		path: google.maps.SymbolPath.CIRCLE,
-			// 		scale: 8,
-			// 		strokeColor: '#393'
-			// 	};
-			// 	line = new google.maps.Polyline({
-			// 		path: lineCoordinates,
-			// 		icons: [{
-			// 			icon: lineSymbol,
-			// 			offset: '100%'
-			// 		}],
-			// 		map: map
-			// 	});
-      // }
-				// animateCircle();
-
-
-			// function animateCircle() {
-			// 	var count = 0;
-			// 	window.setInterval(function() {
-			// 		count = (count + 1) % 200;
-      //
-			// 		var icons = line.get('icons');
-			// 		icons[0].offset = (count / 2) + '%';
-			// 		line.set('icons', icons);
-			// 	}, 150);
-			// }
-			// google.maps.event.addDomListener(window, 'load', initialize);
-      ////
-
+      
       </script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDhQ_lmn45fSm5tDc2EEEWPRSdnr1Vfqk&callback=initMap" async defer></script>
   </body>
