@@ -1,4 +1,4 @@
-#大量傷病患雲端系統(MCI System)
+# 大量傷病患雲端系統(MCI System)
 
 Android:
         採用第三方API[MPchart](https://github.com/PhilJay/MPAndroidChart)顯示病患們的檢傷級數
