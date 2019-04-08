@@ -2,7 +2,7 @@
 
 Android提供以下功能:
 
-       採用第三方API [MPchart](https://github.com/PhilJay/MPAndroidChart)顯示病患們的檢傷級數
+       採用第三方API (https://github.com/PhilJay/MPAndroidChart)顯示病患們的檢傷級數
 
        採用第三方API [HotspotManager](https://github.com/nickrussler/Android-Wifi-Hotspot-Manager-Class)控制熱點
 
